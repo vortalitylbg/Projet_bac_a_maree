@@ -1,13 +1,21 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
+body, html {
+    height: 100%;
     font-family: 'Arial';
+    background-image: url("../images/lycee.jpg");
+    background-size: cover;
 }
 
+#hero {
+    height: 20vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
 /* Nav Bar */
 
@@ -21,6 +29,8 @@ nav {
     text-align: center;
     justify-content: center;
     width: 100%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
 }
 
 nav a {
@@ -77,121 +87,49 @@ nav a:hover {
 }
 
 
-
-/* Hero */
-#hero {
-    position: relative;
-    min-height: 100vh;   
+a {
+    text-decoration: none;
 }
 
-.carousel-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    min-height: 80vh; /* ← règle ça comme tu veux */
-    z-index: 1;
-    margin-bottom: 1rem;
-}
-  
 
-.carousel-track {
-    display: flex;
-    width: 300%;
-    height: 100%; /* ← important */
-    transition: transform 0.5s ease-in-out;
-}
-  
-
-.carousel-track img {
-    width: 100vw;
-    height: 100%;
-    object-fit:inherit;
-    flex-shrink: 0;
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 10rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 2;
-  transition: ease 0.2s;
-}
-
-.carousel-btn:hover {
-    background: rgba(0, 0, 0, 0.3);
-    transition: ease 0.2s;
-}
-
-.carousel-btn.prev {
-  left: 10px;
-}
-
-.carousel-btn.next {
-  right: 10px;
-}
-
-.carousel-caption-fixed {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.7);
-  padding: 1rem 2rem;
-}
-
-.carousel-caption-fixed h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.carousel-caption-fixed p {
-  font-size: 1.2rem;
-}
-
-/* Calandrier */
-
-.calendar-section {
-    margin-top: 0;
-    z-index: 0;
-    padding-top: 2rem;
-    background-color: #f7f7f7;
+#register-section {
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
-  
 
-.calendar-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
-  color: #333;
+#register-container {
+    background-color: rgba(36, 36, 36, 0.5);
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 0 100px rgba(0,0,0,0.6);
+    max-width: 35%;
+    margin: 120px auto 0;
+    color: #ffffff;
 }
 
-.calendar-wrapper {
-    background-color: #1a1a1a;
+#register-elements {
+    display: block;
+    margin-top: 5vh;
+    font-size: 20px;
+}
+
+#register-element {
+    display: flex;
+    margin: 2vh;
+}
+
+#register-element-bac {
+    display: block;
+    margin-top: 5vh;
+}
+
+#register-button {
+    background-color: #fff;
+    color: black;
+    font-weight: bold;
+    max-width: 30%;
     padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.calendar-wrapper:hover {
-    transform: scale(1.01);
-    transition: transform 0.3s ease;
-}
-
-
-
-.calendar-iframe {
-    width: 100%;
-    height: 600px;
-    border: none;
-    border-radius: 10px;
+    border-radius: 5px;
+    margin: 5vh auto 0;
 }
