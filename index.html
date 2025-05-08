@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bac À Marée - St Aubin La Salle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js'></script>
+    <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
+    </script>
+</head>
+<body>
+
+    <section id="hero">
+        <div class="carousel-container">
+            <nav>
+                <!-- Gauche -->
+                <a href="https://www.staubinlasalle.fr" target="_blank">
+                    <img src="images/logo_lycee.png" width="170px" alt="logo du lycée saint aubin la salle">
+                </a>
+        
+                <!-- Milieu -->
+                <a href="">
+                    <span>Accueil</span>
+                </a>
+                <a href="">
+                    <span>Nous</span>
+                </a>
+                <a href="">
+                    <span>Points de collectes</span>
+                </a>
+                <a href="">
+                    <span>Les news</span>
+                </a>
+                <a href="">
+                    <span>Ou nous trouver ?</span>
+                </a>
+        
+                <!-- Droite -->
+                <a href="#">
+                    <div id="nav-register">
+                        <span>S'inscrire</span>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="nav-login">
+                        <span>Se connecter</span>
+                    </div>
+                </a>
+        
+        
+            </nav>
+            <div class="carousel-caption-fixed">
+                <h2>Qu'est-ce qu'un bac à marée ?</h2>
+                <p>(stv je peut mettre du texte là)</p>
+            </div>
+
+            <div class="carousel-track">
+                <img src="images/lycee.jpg" alt="photo du lycée St Aubin La Salle">  
+                <img src="images/image-1.jpg" alt="Image 1" />
+                <img src="images/image-2.jpg" alt="Image 2" />
+                <img src="images/image-3.jpg" alt="Image 3" />
+            </div>
+
+            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn next">&#10095;</button>
+          </div>
+    </section>
+
+    <section class="calendar-section">
+        <h2>Calendrier des événements</h2>
+        <iframe src="https://calendar.google.com/calendar/embed?src=eb42a4e4228712cc8aa6b2a42f8627248538db874e3a5a5bea544eaae1cf918d%40group.calendar.google.com&ctz=Europe%2FParis" 
+        style="border: 0" width="800" height="600" frameborder="0" scrolling="no" class="calendar-iframe"></iframe>
+
+        <div id='calendar'></div>
+    </section>
+      
+    
+      
+
+    <script src="script.js"></script>
+
+</body>
+</html>
