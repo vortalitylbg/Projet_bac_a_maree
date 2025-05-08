@@ -1,20 +1,30 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body, html {
     height: 100%;
-    font-family: 'Arial';
-    background-image: url("../images/lycee.jpg");
-    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../images/lycee.jpg") center/cover no-repeat;
+    color: #fff;
 }
 
 #hero {
     height: 20vh;
-    justify-content: center;
+    display: flex;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+}
+
+.bold {
+    font-weight: bold;
+    
+}
+
+.big {
+    font-size: 30px;
 }
 
 /* Nav Bar */
@@ -93,43 +103,107 @@ a {
 
 
 #register-section {
+    display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
 }
 
 #register-container {
-    background-color: rgba(36, 36, 36, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 2rem;
     border-radius: 5px;
-    box-shadow: 0 0 100px rgba(0,0,0,0.6);
-    max-width: 35%;
-    margin: 120px auto 0;
-    color: #ffffff;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#register-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 #register-elements {
-    display: block;
-    margin-top: 5vh;
-    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 2rem;
 }
 
 #register-element {
     display: flex;
-    margin: 2vh;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#register-element span,
+#register-element-bac span {
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+#register-element input[type="text"],
+#register-element input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
 }
 
 #register-element-bac {
-    display: block;
-    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#register-element-bac label {
+    margin-right: 1rem;
 }
 
 #register-button {
-    background-color: #fff;
-    color: black;
+    background-color: #4F9CF9;
+    color: white;
     font-weight: bold;
-    max-width: 30%;
+    text-align: center;
     padding: 1rem;
+    padding-left: 10vh;
+    padding-right: 10vh;
     border-radius: 5px;
-    margin: 5vh auto 0;
+    margin: 2rem auto 0;
+    cursor: pointer;
+    width: fit-content;
+    transition: 0.3s ease;
+}
+
+#register-button:hover {
+    background-color: #3a89e8;
+}
+
+#already-account {
+    color:#2768b7;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+#about {
+    margin-top: 5vh;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    display: block;
+}
+
+#about-container {
+    width: 80%;
+    margin-left: 10%;
+}
+
+#about-container span {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
