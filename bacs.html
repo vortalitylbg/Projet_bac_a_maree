@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bacs à Marée | Carte</title>
+    <link rel="stylesheet" href="pages_style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Reprise de la barre de navigation -->
+    <section id="hero">
+        <nav>
+            <a href="https://www.staubinlasalle.fr" target="_blank"><img src="images/logo_lycee.png" width="170px" alt="logo lycée"></a>
+            <a href="index.html"><img src="images/logo_nature_epure.png" width="70px" alt="logo projet"></a>
+            <a href="index.html"><span>Accueil</span></a>
+            <a href="nous.html"><span>Nous</span></a>
+            <a href="bacs.html"><span>Points de collectes</span></a>
+            <a href="news.html"><span>Les news</span></a>
+            <a href="ou_nous_trouver.html"><span>Où nous trouver ?</span></a>
+            <a href="account/register.html"><div id="nav-register"><span>S'inscrire</span></div></a>
+            <a href="account/login.html"><div id="nav-login"><span>Se connecter</span></div></a>
+        </nav>
+    </section>
+
+    <!-- Contenu principal -->
+    <section id="map-search-section">
+        <div class="map-side">
+            <div id="map"></div>
+        </div>
+        <div class="info-side">
+            <input type="text" id="search" placeholder="Rechercher un bac...">
+            <ul id="bac-list"></ul>
+        </div>
+    </section>
+
+    <script src="bacs.js"></script>
+</body>
+</html>
