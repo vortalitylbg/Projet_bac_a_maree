@@ -167,18 +167,26 @@ a {
     color: white;
     font-weight: bold;
     text-align: center;
-    padding: 1rem;
-    padding-left: 10vh;
-    padding-right: 10vh;
+    padding: 1rem 10vh;
     border-radius: 5px;
     margin: 2rem auto 0;
     cursor: pointer;
     width: fit-content;
     transition: 0.3s ease;
+
+    /* Supprimer styles natifs du bouton */
+    border: none;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 #register-button:hover {
     background-color: #3a89e8;
+}
+#register-button:active {
+    background-color: #2a6bbf;
 }
 
 #already-account {
@@ -187,23 +195,12 @@ a {
     width: 100%;
 }
 
-
-
-#about {
-    margin-top: 5vh;
+#register-element input[type="password"] {
     width: 100%;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    display: block;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
 }
 
-#about-container {
-    width: 80%;
-    margin-left: 10%;
-}
-
-#about-container span {
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
