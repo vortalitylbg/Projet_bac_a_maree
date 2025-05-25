@@ -53,28 +53,30 @@
     <section id="register-section">
         <div id="register-container">
             <h2>Se connecter</h2>
-            <div id="register-elements">
-                <div id="register-element">
-                    <span>Adresse e-mail</span>
-                    <input type="email" id="e-mail" name="e-mail">
-                </div>
-                <div id="register-element">
-                    <span>Mot de passe</span>
-                    <input type="text" id="password" name="password">
-                </div>
-                <a href="">
-                    <div id="register-button">
-                        <span>S'inscrire</span>
+            <form id="register-form">
+                <div id="register-elements">
+                    <div id="register-element">
+                        <span>Adresse e-mail</span>
+                        <input type="email" id="email" name="email">
                     </div>
-                </a>
+                    <div id="register-element">
+                        <span>Mot de passe</span>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <a href="">
+                        <button type="submit" id="register-button">Se Connecter</button>
+                    </a>
 
-                <a href="register.html">
-                    <div id="already-account">
-                        <span>Vous n'avez pas de compte ?</span>
-                    </div>
-                </a>
-            </div>
+                    <a href="register.html">
+                        <div id="already-account">
+                            <span>Vous n'avez pas de compte ?</span>
+                        </div>
+                    </a>
+                </div>
+            </form>
         </div>
     </section>
+
+    <script type="module" src="login.js"></script>
 </body>
 </html>
