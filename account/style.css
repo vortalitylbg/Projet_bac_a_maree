@@ -6,8 +6,10 @@
 
 body, html {
     height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../images/lycee.jpg") center/cover no-repeat;
+    font-family: 'Arial';
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     color: #fff;
 }
 
