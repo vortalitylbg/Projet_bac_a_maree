@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bac À Marée | Boutique</title>
+    <link rel="stylesheet" href="pages_style.css">
+</head>
+<body>
+    <section id="hero">
+        <nav>
+            <a href="https://vortalitylbg.github.io/Projet_bac_a_maree/"><img src="images/logo_nature_epure.png" width="70px" alt="logo du lycée saint aubin la salle"></a>
+            <a href="index.html"><span>Accueil</span></a>
+            <a href="nous.html"><span>Nous</span></a>
+            <a href="bacs.html"><span>Points de collectes</span></a>
+            <a href="news.html"><span>Les news</span></a>
+            <a href="ou_nous_trouver.html"><span>Ou nous trouver ?</span></a>
+            <a href="shop.html">Boutique</a>
+            <a href="#">Info plastique</a>
+            <a href="account/register.html"><div id="nav-register"><span>S'inscrire</span></div></a>
+            <a href="account/login.html"><div id="nav-login"><span>Se connecter</span></div></a>
+            </nav>
+    </section>
+
+    <section id="product">
+        <h1>Nos Produits</h1>
+
+        <div id="product-container">
+            <div class="product-line">
+                <div class="product-item">
+                    <h2>Produit 1</h2>
+                    <p>Description du produit 1. Un produit éco-responsable pour un mode de vie durable.</p>
+                    <span class="price">19,99€</span>
+                </div>
+
+                <div class="product-item">
+                    <h2>Produit 2</h2>
+                    <p>Description du produit 2. Un produit éco-responsable pour un mode de vie durable.</p>
+                    <span class="price">23,05€</span>
+                </div>
+
+                <div class="product-item">
+                    <h2>Produit 3</h2>
+                    <p>Description du produit 3. Un produit éco-responsable pour un mode de vie durable.</p>
+                    <span class="price">19,99€</span>
+                </div>
+            </div>
+
+            <div class="product-line">
+                <div class="product-item">
+                    <h2>Produit 4</h2>
+                    <p>Description du produit 4. Un produit éco-responsable pour un mode de vie durable.</p>
+                    <span class="price">19,99€</span>
+                </div>
+
+                <div class="product-item">
+                    <h2>Produit 5</h2>
+                    <p>Description du produit 5. Un produit éco-responsable pour un mode de vie durable.</p>
+                    <span class="price">19,99€</span>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    
+    
+        <!-- MODAL -->
+    <div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-desc"></p>
+        <span id="modal-price" class="price"></span><br><br>
+        <button class="btn-buy">Acheter</button>
+    </div>
+    </div>
+
+    <script src="shop.js"></script>
+
+    <!-- STYLES -->
+    <style>
+    .modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal.hidden {
+        display: none;
+    }
+
+    .modal-content {
+        background: rgba(255,255,255,0.9);
+        padding: 2rem;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 500px;
+        position: relative;
+        text-align: center;
+    }
+
+    .modal-content h2 {
+        margin-bottom: 1rem;
+    }
+
+    .btn-buy {
+        background-color: #4F9CF9;
+        color: white;
+        padding: 0.7rem 1.2rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-buy:hover {
+        background-color: #3a89e8;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+    }
+    </style>
+
+</body>
+</html>
