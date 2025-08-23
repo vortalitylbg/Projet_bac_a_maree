@@ -1,199 +1,209 @@
+/* Reset */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial';
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  overflow-x: hidden;
 }
 
-
-/* Nav Bar */
-
-nav {
-    background-color: rgba(0, 0, 0, 0.5);
-    top: 0;
-    position: absolute;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
+/* ===================== Glass Effect ===================== */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
-nav a {
-    color: aliceblue;
-    font-family: 'Arial';
-    text-decoration: none;
-    transition: ease 0.2s;
-    margin-left: 1%;
-    margin-right: 1%;
+/* ===================== Navbar ===================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  position: fixed;
+  width: 90%;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  transition: all 0.3s ease;
 }
 
-nav a:hover {
-    color: #4F9CF9;
-    transition: ease 0.2s;
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+.logo { height: 50px; }
 
-
-#nav-register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #4F9CF9;
-    width: 185%;
-    height: 45px;
-    border-radius: 5px;
-    color: #fff;
-    transition: ease 0.2s;
+.nav-links {
+  display: flex;
+  list-style: none;
 }
 
-#nav-register:hover {
-    background-color: #3a89e8;
-    transition: ease 0.2s;
+.nav-links li { margin: 0 0.8rem; }
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-#nav-login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: white;
-    color: #4F9CF9;
-    margin-left: 30px;
-    width: 120%;
-    height: 45px;
-    border-radius: 5px;
-    transition: ease 0.2s;
+.navbar.scrolled .nav-links a { color: #333; }
+
+.nav-links a:hover { color: #4F9CF9; }
+
+.nav-actions { display: flex; }
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  margin-left: 0.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-#nav-login:hover {
-    transition: ease 0.2s;
-    background-color: rgb(205, 202, 202);
+.glass-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
 }
 
+.navbar.scrolled .glass-btn { color: #333; }
 
+.glass-btn:hover { background: rgba(255,255,255,0.4); }
 
-/* Hero */
+.glass-btn.secondary {
+  background: rgba(255,255,255,0.1);
+  color: #4F9CF9;
+}
+
+/* ===================== Hero ===================== */
 #hero {
-    position: relative;
-    min-height: 100vh;   
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.animated-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1de9b6, #00bfa5, #4fc3f7);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  z-index: 0;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .carousel-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    min-height: 80vh; /* ← règle ça comme tu veux */
-    z-index: 1;
-    margin-bottom: 1rem;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
 }
-  
 
 .carousel-track {
-    display: flex;
-    width: 300%;
-    height: 100%; /* ← important */
-    transition: transform 0.5s ease-in-out;
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  height: 100%;
 }
-  
 
 .carousel-track img {
-    width: 100vw;
-    height: 100%;
-    object-fit:inherit;
-    flex-shrink: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  flex-shrink: 0;
 }
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  max-width: 700px;
+  padding: 2rem;
+  transition: ease 0.2s;
+  cursor: pointer;
+}
+
+.carousel-caption:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  transition: ease 0.2s;
+}
+
+.carousel-caption h1 { font-size: 3rem; margin-bottom: 1rem; }
+.carousel-caption p { font-size: 1.3rem; }
 
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0);
+  background: rgba(255,255,255,0.2);
   border: none;
   color: white;
   font-size: 2rem;
-  padding: 10rem 1rem;
-  border-radius: 5px;
   cursor: pointer;
-  z-index: 2;
-  transition: ease 0.2s;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  transition: background 0.3s;
 }
 
-.carousel-btn:hover {
-    background: rgba(0, 0, 0, 0.3);
-    transition: ease 0.2s;
-}
+.carousel-btn:hover { background: rgba(255,255,255,0.4); }
 
-.carousel-btn.prev {
-  left: 10px;
-}
+.carousel-btn.prev { left: 20px; }
+.carousel-btn.next { right: 20px; }
 
-.carousel-btn.next {
-  right: 10px;
-}
-
-.carousel-caption-fixed {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.7);
-  padding: 1rem 2rem;
-}
-
-.carousel-caption-fixed h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.carousel-caption-fixed p {
-  font-size: 1.2rem;
-}
-
-/* Calandrier */
-
+/* ===================== Calendrier ===================== */
 .calendar-section {
-    margin-top: 0;
-    z-index: 0;
-    padding-top: 2rem;
-    background-color: #f7f7f7;
-    text-align: center;
-}
-  
-
-.calendar-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 2rem;
-  color: #333;
+  padding: 6rem 2rem;
+  background: #f7f7f7;
+  text-align: center;
 }
 
-.calendar-wrapper {
-    background-color: #1a1a1a;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+.calendar-section h2 { font-size: 2.2rem; margin-bottom: 2rem; }
 
-.calendar-wrapper:hover {
-    transform: scale(1.01);
-    transition: transform 0.3s ease;
-}
-
-
+.calendar-wrapper { max-width: 900px; margin: 0 auto; padding: 1rem; }
 
 .calendar-iframe {
-    width: 100%;
-    height: 600px;
-    border: none;
-    border-radius: 10px;
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 12px;
+}
+
+/* ===================== Footer ===================== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* ===================== Responsive ===================== */
+@media screen and (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-actions { display: none; }
+  .carousel-caption h1 { font-size: 2rem; }
+  .carousel-caption p { font-size: 1rem; }
+}
+
+@media screen and (max-width: 480px) {
+  #hero { min-height: 80vh; }
 }
