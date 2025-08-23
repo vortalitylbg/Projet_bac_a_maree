@@ -2,7 +2,6 @@ const track = document.querySelector('.carousel-track');
 const slides = Array.from(track.children);
 const nextBtn = document.querySelector('.carousel-btn.next');
 const prevBtn = document.querySelector('.carousel-btn.prev');
-
 let currentIndex = 0;
 
 function updateCarousel() {
@@ -22,12 +21,16 @@ function prevSlide() {
 
 nextBtn.addEventListener('click', nextSlide);
 prevBtn.addEventListener('click', prevSlide);
-
-// Auto-slide
-setInterval(nextSlide, 5000);
-
-// Resize event (si la fenêtre change de taille)
+setInterval(nextSlide, 6000);
 window.addEventListener('resize', updateCarousel);
-
-// Initial call
 updateCarousel();
+
+/* Navbar couleur selon scroll / section */
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > window.innerHeight - 100){
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
