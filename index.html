@@ -1,57 +1,71 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bac À Marée | St Aubin La Salle</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bac À Marée | St Aubin La Salle</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
 <body>
 
-    <section id="hero">
-        <div class="carousel-container">
-            <nav>
-                <a href="https://vortalitylbg.github.io/Projet_bac_a_maree/"><img src="images/logo_nature_epure.png" width="70px" alt="logo du lycée saint aubin la salle"></a>
-                <a href="index.html"><span>Accueil</span></a>
-                <a href="nous.html"><span>Nous</span></a>
-                <a href="bacs.html"><span>Points de collectes</span></a>
-                <a href="news.html"><span>Les news</span></a>
-                <a href="ou_nous_trouver.html"><span>Ou nous trouver ?</span></a>
-                <a href="shop.html">Boutique</a>
-                <a href="#">Info plastique</a>
-                <a href="account/register.html"><div id="nav-register"><span>S'inscrire</span></div></a>
-                <a href="account/login.html"><div id="nav-login"><span>Se connecter</span></div></a>
-            </nav>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar glass">
+      <a href="index.html"><img src="images/logo_nature_epure.png" alt="logo" class="logo"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="pages/nous.html">Nous</a></li>
+        <li><a href="pages/bacs.html">Points de collecte</a></li>
+        <li><a href="pages/news.html">Les news</a></li>
+        <li><a href="pages/ou_nous_trouver.html">Où nous trouver ?</a></li>
+        <li><a href="pages/shop.html">Boutique</a></li>
+        <li><a href="#">Info plastique</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="account/register.html" class="btn glass-btn">S'inscrire</a>
+        <a href="account/login.html" class="btn glass-btn secondary">Se connecter</a>
+      </div>
+    </nav>
+  </header>
 
-            <div class="carousel-caption-fixed">
-                <h2>Qu'est-ce qu'un bac à marée ?</h2>
-                <p>(stv je peut mettre du texte là)</p>
-            </div>
+  <!-- Hero / Carousel -->
+  <section id="hero">
+    <div class="animated-bg"></div>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <img src="images/background.png" alt="Photo 1">
+        <img src="images/background.png" alt="Photo 2">
+        <img src="images/background.png" alt="Photo 3">
+      </div>
 
-            <div class="carousel-track">
-                <img src="images/background.png" alt="photo du lycée St Aubin La Salle">  
-                <img src="images/background.png" alt="Image 1" />
-                <img src="images/background.png" alt="Image 2" />
-                <img src="images/background.png" alt="Image 3" />
-            </div>
+      <div class="carousel-caption glass">
+        <h1>Bac à Marée</h1>
+        <p>Un projet étudiant innovant pour collecter les plastiques sauvages et protéger nos océans.</p>
+      </div>
 
-            <button class="carousel-btn prev">&#10094;</button>
-            <button class="carousel-btn next">&#10095;</button>
-          </div>
-    </section>
+      <button class="carousel-btn prev">&#10094;</button>
+      <button class="carousel-btn next">&#10095;</button>
+    </div>
+  </section>
 
-    <section class="calendar-section">
-        <h2>Calendrier des événements</h2>
-        <iframe src="https://calendar.google.com/calendar/embed?src=eb42a4e4228712cc8aa6b2a42f8627248538db874e3a5a5bea544eaae1cf918d%40group.calendar.google.com&ctz=Europe%2FParis" 
-        style="border: 0" width="800" height="600" frameborder="0" scrolling="no" class="calendar-iframe"></iframe>
+  <!-- Calendrier -->
+  <section class="calendar-section">
+    <h2>Calendrier des événements</h2>
+    <div class="calendar-wrapper glass">
+      <iframe src="https://calendar.google.com/calendar/embed?src=eb42a4e4228712cc8aa6b2a42f8627248538db874e3a5a5bea544eaae1cf918d%40group.calendar.google.com&ctz=Europe%2FParis"
+        class="calendar-iframe" frameborder="0" scrolling="no"></iframe>
+    </div>
+  </section>
 
-    </section>
-      
-    
-      
+  <!-- Footer -->
+  <footer class="glass">
+    <p>&copy; 2025 Bac à Marée – Lycée St Aubin La Salle</p>
+  </footer>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 
+  <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="js/lenis.js"></script>
 </body>
 </html>
