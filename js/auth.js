@@ -24,14 +24,15 @@ const navActions = document.querySelector(".nav-actions");
 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
-    // ✅ Cas spécial admin
+    // Cas spécial admin
     if (user.email === "admin@bacamaree.fr") {
       navActions.innerHTML = `
-        <span class="admin-badge">Admin</span>
+        <a href="admin.html" class="admin-badge">Admin</a>
         <button id="logoutBtn" class="btn glass-btn secondary">Déconnexion</button>
       `;
+
     } else {
-      // ✅ Cas utilisateur normal
+      // Cas utilisateur normal
       const userDoc = await getDoc(doc(db, "users", user.uid));
       if (userDoc.exists()) {
         const data = userDoc.data();
@@ -51,7 +52,7 @@ onAuthStateChanged(auth, async (user) => {
       });
     }
   } else {
-    // ✅ Cas non connecté
+    // Cas non connecté
     navActions.innerHTML = `
       <a href="register.html" class="btn glass-btn">S'inscrire</a>
       <a href="login.html" class="btn glass-btn secondary">Se connecter</a>
