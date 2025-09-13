@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bac À Marée | St Aubin La Salle</title>
+  <title>À propos | Bac À Marée</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.8/dist/lenis.css" />
+  <link rel="stylesheet" href="css/a-propos.css" />
 </head>
 <body>
 
-  <!-- Canvas particules (derrière tout) -->
+  <!-- Canvas particules -->
   <canvas id="particles"></canvas>
 
   <!-- Navigation -->
-<!-- Navigation -->
   <header>
     <nav class="navbar glass">
       <a href="index.html"><img src="images/logo_nature_epure.png" alt="logo" class="logo" /></a>
@@ -49,24 +49,25 @@
     <div class="overlay"></div>
   </header>
 
-  <!-- Hero -->
-  <section id="hero">
-    <div class="hero-content glass">
-      <h1>Bac à Marée</h1>
-      <p>Un projet étudiant innovant pour collecter les plastiques sauvages et protéger nos océans.</p>
-    </div>
-  </section>
 
-  <!-- Calendrier -->
-  <section class="calendar-section">
-    <h2>Calendrier des événements</h2>
-    <div class="calendar-wrapper glass">
-      <iframe
-        src="https://calendar.google.com/calendar/embed?src=eb42a4e4228712cc8aa6b2a42f8627248538db874e3a5a5bea544eaae1cf918d%40group.calendar.google.com&ctz=Europe%2FParis"
-        class="calendar-iframe"
-        frameborder="0"
-        scrolling="no">
-      </iframe>
+  <!-- Section A propos -->
+  <section id="about">
+    <div class="about-content glass">
+      <h1>À propos de notre projet</h1>
+      <p>
+        Nous sommes en classe de <strong>Première euro plastique et composite</strong> 
+        au <strong>Lycée Saint Aubin La Salle</strong>.
+      </p>
+      <p>
+        Dans le cadre d’un projet visant à l’obtention de notre bac, nous devons créer une 
+        <strong>micro-entreprise</strong>. 
+        Notre objectif est de concevoir et mettre en place des 
+        <strong>bacs de récolte</strong> capables de contenir les déchets plastiques sauvages.
+      </p>
+      <p>
+        En parallèle, nous organisons également des <strong>récoltes manuelles</strong> dans certains espaces 
+        comme les plages, les parcs ou encore les zones naturelles sensibles.
+      </p>
     </div>
   </section>
 
@@ -80,6 +81,5 @@
   <script src="js/lenis.js"></script>
 
   <script type="module" src="js/auth.js"></script>
-
 </body>
 </html>

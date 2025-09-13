@@ -3,18 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bac À Marée | St Aubin La Salle</title>
+  <title>S'inscrire | Bac À Marée</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="images/favicon.png" />
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.8/dist/lenis.css" />
+  <link rel="stylesheet" href="css/register.css" />
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
 </head>
 <body>
-
-  <!-- Canvas particules (derrière tout) -->
+  <!-- Canvas particules -->
   <canvas id="particles"></canvas>
 
   <!-- Navigation -->
-<!-- Navigation -->
   <header>
     <nav class="navbar glass">
       <a href="index.html"><img src="images/logo_nature_epure.png" alt="logo" class="logo" /></a>
@@ -49,36 +47,46 @@
     <div class="overlay"></div>
   </header>
 
-  <!-- Hero -->
-  <section id="hero">
-    <div class="hero-content glass">
-      <h1>Bac à Marée</h1>
-      <p>Un projet étudiant innovant pour collecter les plastiques sauvages et protéger nos océans.</p>
-    </div>
-  </section>
+  <!-- Formulaire -->
+  <main class="form-container glass">
+    <h1>Créer un compte</h1>
+      <form id="registerForm">
+        <div class="form-group">
+          <label for="prenom">Prénom</label>
+          <input type="text" id="prenom" name="prenom" required>
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Adresse mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse postale</label>
+          <textarea id="adresse" name="adresse" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn glass-btn">S'inscrire</button>
+      </form>
 
-  <!-- Calendrier -->
-  <section class="calendar-section">
-    <h2>Calendrier des événements</h2>
-    <div class="calendar-wrapper glass">
-      <iframe
-        src="https://calendar.google.com/calendar/embed?src=eb42a4e4228712cc8aa6b2a42f8627248538db874e3a5a5bea544eaae1cf918d%40group.calendar.google.com&ctz=Europe%2FParis"
-        class="calendar-iframe"
-        frameborder="0"
-        scrolling="no">
-      </iframe>
-    </div>
-  </section>
+    <p class="login-link">Déjà un compte ? <a href="login.html">Se connecter</a></p>
+  </main>
 
   <!-- Footer -->
   <footer class="glass">
     <p>&copy; 2025 Bac à Marée – Lycée St Aubin La Salle</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="../script.js"></script>
   <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
   <script src="js/lenis.js"></script>
 
+  <script type="module" src="js/register.js"></script>
   <script type="module" src="js/auth.js"></script>
 
 </body>

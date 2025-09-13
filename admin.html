@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Bac À Marée</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    main {
+      padding: 8rem 2rem 4rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 2rem;
+      opacity: 0.85;
+    }
+
+    .table-container {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(255,255,255,0.12);
+      color: #4F9CF9;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    tr:nth-child(even) {
+      background: rgba(255,255,255,0.04);
+    }
+
+    tr:hover {
+      background: rgba(79,156,249,0.15);
+      transition: background 0.25s ease;
+    }
+  </style>
+</head>
+<body>
+  <!-- === NAVBAR === -->
+  <header>
+    <nav class="navbar glass">
+      <a href="index.html"><img src="images/logo_nature_epure.png" alt="logo" class="logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="bacs.html">Points de collecte</a></li>
+        <li><a href="news.html">Les news</a></li>
+        <li><a href="ou_nous_trouver.html">Où nous trouver ?</a></li>
+        <li><a href="shop.html">Boutique</a></li>
+        <li><a href="#">Info plastique</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="register.html" class="btn glass-btn active">S'inscrire</a>
+        <a href="login.html" class="btn glass-btn secondary">Se connecter</a>
+      </div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="bacs.html">Points de collecte</a></li>
+        <li><a href="news.html">Les news</a></li>
+        <li><a href="ou_nous_trouver.html">Où nous trouver ?</a></li>
+        <li><a href="shop.html">Boutique</a></li>
+        <li><a href="#">Info plastique</a></li>
+        <li><a href="register.html" class="btn glass-btn active">S'inscrire</a></li>
+        <li><a href="login.html" class="btn glass-btn secondary">Se connecter</a></li>
+      </ul>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+  <main>
+    <h1>Espace Administrateur</h1>
+    <p>Liste complète des utilisateurs inscrits</p>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Adresse</th>
+          </tr>
+        </thead>
+        <tbody id="usersBody">
+          <!-- Rempli par JS -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script type="module" src="js/auth.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDMgaQ0EMWnVnZU_JJNURTUjSgdVf3z10g",
+      authDomain: "bacamaree-4ff35.firebaseapp.com",
+      projectId: "bacamaree-4ff35",
+      storageBucket: "bacamaree-4ff35.firebasestorage.app",
+      messagingSenderId: "220585728334",
+      appId: "1:220585728334:web:e84644fb36a53ecde4e61f",
+      measurementId: "G-GEZ00GYFEM"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const usersBody = document.getElementById("usersBody");
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      // Vérification stricte de l'email
+      if (user.email !== "admin@bacamaree.fr") {
+        alert("Accès refusé !");
+        await auth.signOut(); // Déconnexion immédiate
+        window.location.href = "index.html";
+        return;
+      }
+
+      // Chargement des utilisateurs
+      const querySnapshot = await getDocs(collection(db, "users"));
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        const row = `
+          <tr>
+            <td>${data.nom || ""}</td>
+            <td>${data.prenom || ""}</td>
+            <td>${data.email || ""}</td>
+            <td>${data.adresse || ""}</td>
+          </tr>
+        `;
+        usersBody.innerHTML += row;
+      });
+    });
+  </script>
+
+</body>
+</html>

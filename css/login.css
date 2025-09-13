@@ -1,0 +1,78 @@
+/* === Page Login === */
+.form-container {
+  max-width: 500px;
+  margin: 15rem auto 15rem;
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.form-container h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #ddd;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border .25s, background .25s;
+}
+
+input:focus {
+  border-color: #4F9CF9;
+  background: rgba(255,255,255,0.15);
+}
+
+button[type="submit"] {
+  margin-top: 1rem;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+.login-link {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.login-link a {
+  color: #4F9CF9;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-container {
+    margin: 6rem 1rem 2rem;
+    padding: 1.8rem;
+  }
+}
