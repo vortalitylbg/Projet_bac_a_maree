@@ -33,7 +33,6 @@ form.addEventListener("submit", async (e) => {
   try {
     // Connexion de l'utilisateur
     await signInWithEmailAndPassword(auth, email, password);
-    alert("Connexion réussie !");
     window.location.href = "index.html"; // redirige vers accueil
   } catch (error) {
     console.error("Erreur login:", error);

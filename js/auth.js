@@ -37,7 +37,7 @@ onAuthStateChanged(auth, async (user) => {
       if (userDoc.exists()) {
         const data = userDoc.data();
         navActions.innerHTML = `
-          <span class="user-name">${data.prenom} ${data.nom}</span>
+          <span class="user-name" style="margin-right: 1rem;">${data.prenom} ${data.nom}</span>
           <button id="logoutBtn" class="btn glass-btn secondary">Déconnexion</button>
         `;
       }

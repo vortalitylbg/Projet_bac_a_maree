@@ -1,0 +1,146 @@
+main {
+  padding: 8rem 2rem 4rem;
+  max-width: 1100px;
+  margin: auto;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0.85;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+}
+
+th {
+  background: rgba(255,255,255,0.12);
+  color: #4F9CF9;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+tr:nth-child(even) {
+  background: rgba(255,255,255,0.04);
+}
+
+tr:hover {
+  background: rgba(79,156,249,0.15);
+  transition: background 0.25s ease;
+}
+
+.btn.danger {
+  background: rgba(255, 255, 255, 0.082);
+  color: #fff;
+  border: #e53935 1px solid;
+  padding: 0.6rem 2rem;
+}
+
+.btn.danger:hover {
+  background: #c62828;
+}
+
+.btn.cancel {
+  background: rgba(255, 255, 255, 0.082);
+  color: #fff;
+  border: #3d3d3d75 1px solid;
+  padding: 0.6rem 2rem;
+}
+
+.btn.cancel:hover {
+  background: #6b6b6b;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+
+.add-news {
+  margin-top: 4rem;
+  background: rgba(255,255,255,0.06);
+  padding: 2rem;
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.add-news h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.add-news .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.add-news label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.add-news input,
+.add-news textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.add-news input:focus,
+.add-news textarea:focus {
+  border-color: #4F9CF9;
+  background: rgba(255,255,255,0.15);
+}

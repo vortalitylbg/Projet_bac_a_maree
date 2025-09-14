@@ -1,0 +1,67 @@
+/* === Page Points de Collecte === */
+.bacs-section {
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+}
+
+.bacs-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.bacs-wrapper {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.bacs-list {
+  flex: 1 1 250px;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.bacs-list h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.bacs-list button {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  background: rgba(79,156,249,0.15);
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .25s, transform .2s;
+}
+
+.bacs-list button:hover {
+  background: rgba(79,156,249,0.3);
+  transform: translateY(-2px);
+}
+
+#map {
+  flex: 3 1 600px;
+  height: 500px;
+  border-radius: 16px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .bacs-wrapper {
+    flex-direction: column;
+  }
+  #map {
+    height: 400px;
+  }
+}

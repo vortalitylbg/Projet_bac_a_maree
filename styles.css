@@ -353,12 +353,50 @@ body::before {
 
 /* === Footer === */
 footer {
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
   font-size: 0.9rem;
   color: #fff;
+  text-align: center;
 }
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+.footer-info p {
+  margin: 0.3rem 0;
+}
+
+.footer-info a {
+  color: #4F9CF9;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-socials a {
+  color: #ffffffcc;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #4F9CF9;
+}
+
 
 /* === Responsive === */
 @media screen and (max-width: 768px) {
@@ -366,4 +404,10 @@ footer {
   .nav-actions { display: none; }
   .hero-content h1 { font-size: 2.2rem; }
   .hero-content p { font-size: 1rem; }
+}
+
+
+#logoutBtn {
+  color: #d47373;
+  border: #d47373 1px solid;
 }
