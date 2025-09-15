@@ -72,3 +72,17 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     alert("Erreur de connexion : " + error.message);
   }
 });
+
+// Gestion de l'affichage du mot de passe
+document.querySelectorAll(".toggle-password").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const input = btn.previousElementSibling;
+    if (input.type === "password") {
+      input.type = "text";
+      btn.textContent = "🙈"; // change l'icône
+    } else {
+      input.type = "password";
+      btn.textContent = "👁️";
+    }
+  });
+});

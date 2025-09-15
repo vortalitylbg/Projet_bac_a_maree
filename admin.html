@@ -44,8 +44,8 @@
   </header>
 
   <main>
-    <h1>Admin Pannel - v1.0.1</h1>
-    <p>Réalisé par Unix le gros BG de chez Un Pixel Près</p>
+    <h1>Admin Panel - v1.0.2</h1>
+    <p>Réalisé par Unix le gros BG de chez <a target="_blank" href="https://unpixelpres.fr" style="text-decoration: none; color: rgb(70, 70, 175);">Un Pixel Près</a></p>
     <div class="table-container">
       <table>
         <thead>
@@ -77,6 +77,25 @@
         <button type="submit" class="btn glass-btn">Publier</button>
       </form>
     </section>
+
+    <section class="list-news">
+      <h2 class="list-news-title">Liste des actualités</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Titre</th>
+              <th>Contenu</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="newsBody">
+            <!-- Rempli par JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- Modal suppression -->
@@ -91,11 +110,11 @@
     </div>
   </div>
 
-  <p>Si vous voulez plus de pouvoir sur l'admin pannel (supprimer/modifier des news, ajouter des emplacements de bacs), <strong>achetez moi un beau couteau papillon sur Valo mon riot ID c'est Unix#2007</strong></p>
-
+  
   <script type="module" src="js/auth.js"></script>
   <script type="module" src="js/admin.js"></script>
 
+  <script src="script.js"></script>
   <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
   <script src="js/lenis.js"></script>
 </body>

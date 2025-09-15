@@ -5,7 +5,6 @@ import { getAuth, createUserWithEmailAndPassword }
 import { getFirestore, doc, setDoc } 
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDMgaQ0EMWnVnZU_JJNURTUjSgdVf3z10g",
   authDomain: "bacamaree-4ff35.firebaseapp.com",
@@ -16,7 +15,6 @@ const firebaseConfig = {
   measurementId: "G-GEZ00GYFEM"
 };
 
-// Init Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -31,18 +29,18 @@ form.addEventListener("submit", async (e) => {
   const email = form["email"].value;
   const password = form["password"].value;
   const adresse = form["adresse"].value;
+  const hasBac = form["hasBac"].checked; // ✅ nouveau
 
   try {
-    // Création du compte dans Auth
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // Ajout des infos dans Firestore
     await setDoc(doc(db, "users", user.uid), {
-      prenom: prenom,
-      nom: nom,
-      email: email,
-      adresse: adresse,
+      prenom,
+      nom,
+      email,
+      adresse,
+      hasBac,         // ✅ enregistré dans Firestore
       createdAt: new Date()
     });
 
@@ -52,4 +50,19 @@ form.addEventListener("submit", async (e) => {
     console.error("Erreur Firestore:", error);
     alert("Erreur : " + error.message);
   }
+});
+
+
+// Gestion de l'affichage du mot de passe
+document.querySelectorAll(".toggle-password").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const input = btn.previousElementSibling;
+    if (input.type === "password") {
+      input.type = "text";
+      btn.textContent = "🙈"; // change l'icône
+    } else {
+      input.type = "password";
+      btn.textContent = "👁️";
+    }
+  });
 });

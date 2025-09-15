@@ -113,3 +113,39 @@ if (newsForm) {
     }
   });
 }
+
+// --- Charger et afficher les news ---
+const newsBody = document.getElementById("newsBody");
+
+async function loadNews() {
+  newsBody.innerHTML = "";
+  const querySnapshot = await getDocs(collection(db, "news"));
+  querySnapshot.forEach((docSnap) => {
+    const data = docSnap.data();
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${data.title || ""}</td>
+      <td>${data.content || ""}</td>
+      <td><button class="btn danger" data-newsid="${docSnap.id}">Supprimer</button></td>
+    `;
+
+    newsBody.appendChild(row);
+  });
+
+  document.querySelectorAll("button[data-newsid]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      if (confirm("Voulez-vous vraiment supprimer cette news ?")) {
+        try {
+          await deleteDoc(doc(db, "news", btn.getAttribute("data-newsid")));
+          alert("News supprimée !");
+          loadNews();
+        } catch (error) {
+          alert("Erreur suppression news : " + error.message);
+        }
+      }
+    });
+  });
+}
+
+loadNews();

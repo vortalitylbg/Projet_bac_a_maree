@@ -2,8 +2,9 @@ main {
   padding: 8rem 2rem 4rem;
   max-width: 1100px;
   margin: auto;
-  height: 100vh;
+  min-height: 100vh;
 }
+
 
 h1 {
   font-size: 2.4rem;
@@ -143,4 +144,45 @@ tr:hover {
 .add-news textarea:focus {
   border-color: #4F9CF9;
   background: rgba(255,255,255,0.15);
+}
+
+
+/* Ajout d'un léger effet sur les titres */
+h1, h2 {
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* Un peu d'air entre les sections */
+section {
+  margin-top: 3rem;
+}
+
+/* Bouton plus moderne */
+button, .btn {
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.25s ease;
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Table plus lisible */
+table {
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+th, td {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+
+.list-news-title {
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
