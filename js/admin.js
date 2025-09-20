@@ -21,7 +21,71 @@ const deleteModal = document.getElementById("deleteModal");
 const cancelDeleteBtn = document.getElementById("cancelDelete");
 const confirmDeleteBtn = document.getElementById("confirmDelete");
 
+// conteneur pagination (ajoute dans ton HTML un <div id="usersPagination"></div> après le tableau)
+const paginationDiv = document.getElementById("usersPagination");
+
 let userToDelete = null;
+
+// --- Gestion utilisateurs avec pagination ---
+let allUsers = [];
+let usersPerPage = 4;
+let currentIndex = 0;
+
+async function loadUsers() {
+  usersBody.innerHTML = "";
+  allUsers = [];
+
+  const querySnapshot = await getDocs(collection(db, "users"));
+  querySnapshot.forEach((docSnap) => {
+    allUsers.push({
+      id: docSnap.id,
+      ...docSnap.data()
+    });
+  });
+
+  // reset index
+  currentIndex = 0;
+  renderUsers();
+}
+
+function renderUsers() {
+  // récupérer une tranche de 5
+  const slice = allUsers.slice(currentIndex, currentIndex + usersPerPage);
+
+  slice.forEach((data) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${data.nom || ""}</td>
+      <td>${data.prenom || ""}</td>
+      <td>${data.email || ""}</td>
+      <td>${data.adresse || ""}</td>
+      <td style="display: flex; gap: 10px;">
+        <button class="btn danger" data-uid="${data.id}">Supprimer</button>
+      </td>
+    `;
+    usersBody.appendChild(row);
+  });
+
+  currentIndex += slice.length;
+
+  // gérer le bouton "Voir plus"
+  paginationDiv.innerHTML = "";
+  if (currentIndex < allUsers.length) {
+    const btn = document.createElement("button");
+    btn.className = "btn glass-btn";
+    btn.textContent = "Voir plus d'utilisateurs";
+    btn.addEventListener("click", renderUsers);
+    paginationDiv.appendChild(btn);
+  }
+
+  // Attacher les events supprimer
+  document.querySelectorAll("button[data-uid]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      userToDelete = btn.getAttribute("data-uid");
+      deleteModal.classList.remove("hidden");
+    });
+  });
+}
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
@@ -37,32 +101,8 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
 
-  // Charger les utilisateurs Firestore
-  const querySnapshot = await getDocs(collection(db, "users"));
-  querySnapshot.forEach((docSnap) => {
-    const data = docSnap.data();
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td>${data.nom || ""}</td>
-      <td>${data.prenom || ""}</td>
-      <td>${data.email || ""}</td>
-      <td>${data.adresse || ""}</td>
-      <td>
-        <button class="btn danger" data-uid="${docSnap.id}">Supprimer</button>
-      </td>
-    `;
-
-    usersBody.appendChild(row);
-  });
-
-  // Ajouter événements sur les boutons supprimer
-  document.querySelectorAll("button[data-uid]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      userToDelete = btn.getAttribute("data-uid");
-      deleteModal.classList.remove("hidden");
-    });
-  });
+  // Charger les utilisateurs
+  await loadUsers();
 });
 
 cancelDeleteBtn.addEventListener("click", () => {
@@ -82,9 +122,6 @@ confirmDeleteBtn.addEventListener("click", async () => {
   }
   deleteModal.classList.add("hidden");
 });
-
-
-
 
 // --- Gestion ajout de news ---
 const newsForm = document.getElementById("newsForm");
@@ -147,5 +184,57 @@ async function loadNews() {
     });
   });
 }
+
+// --- Gestion ajout de bacs ---
+const bacForm = document.getElementById("bacForm");
+
+async function getCoords(adresse) {
+  try {
+    const response = await fetch(
+      `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(adresse)}`
+    );
+    const data = await response.json();
+    if (data.length > 0) {
+      return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
+    }
+  } catch (err) {
+    console.error("Erreur géocodage:", err);
+  }
+  return null;
+}
+
+if (bacForm) {
+  bacForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("bacName").value.trim();
+    const adresse = document.getElementById("bacAdresse").value.trim();
+
+    if (!name || !adresse) {
+      alert("Veuillez remplir tous les champs.");
+      return;
+    }
+
+    const coords = await getCoords(adresse);
+    if (!coords) {
+      alert("Impossible de géocoder l’adresse.");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "bacs"), {
+        name,
+        adresse,
+        coords,
+        createdAt: serverTimestamp()
+      });
+      alert("Point ajouté avec succès !");
+      bacForm.reset();
+    } catch (error) {
+      alert("Erreur lors de l’ajout du bac : " + error.message);
+    }
+  });
+}
+
 
 loadNews();

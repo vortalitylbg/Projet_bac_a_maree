@@ -17,28 +17,29 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // ---------- Carte Leaflet ----------
-const map = L.map('map').setView([47.4784, -0.5632], 12); // Centre Angers
+const map = L.map("map").setView([47.4784, -0.5632], 12); // Centre Angers
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap'
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "&copy; OpenStreetMap"
 }).addTo(map);
 
 // ---------- Bacs fixes ----------
-const bacs = {
+const bacsFixes = {
   angersCentre: { coords: [47.4784, -0.5632], name: "Angers - Centre" },
   angersSud:    { coords: [47.4500, -0.5500], name: "Angers - Sud" },
   lacMaine:     { coords: [47.4635, -0.5965], name: "Lac de Maine" },
   parcBalzac:   { coords: [47.4605, -0.5378], name: "Parc Balzac" },
 };
 
-Object.keys(bacs).forEach(key => {
-  const marker = L.marker(bacs[key].coords).addTo(map);
-  marker.bindPopup(`<b>${bacs[key].name}</b>`);
-  bacs[key].marker = marker;
+Object.keys(bacsFixes).forEach(key => {
+  const marker = L.marker(bacsFixes[key].coords).addTo(map);
+  marker.bindPopup(`<b>${bacsFixes[key].name}</b>`);
+  bacsFixes[key].marker = marker;
 });
 
+// Permettre à d’autres scripts (ex: page points) de centrer sur un bac
 window.focusOn = function(id) {
-  const bac = bacs[id];
+  const bac = bacsFixes[id];
   if (bac) {
     map.setView(bac.coords, 15);
     bac.marker.openPopup();
@@ -61,11 +62,11 @@ async function getCoords(adresse) {
   return null;
 }
 
-// ---------- Bacs des utilisateurs ----------
+// ---------- Bacs ajoutés par les utilisateurs ----------
 async function loadUserBacs() {
   const querySnapshot = await getDocs(collection(db, "users"));
-  querySnapshot.forEach(async (doc) => {
-    const user = doc.data();
+  for (const docSnap of querySnapshot.docs) {
+    const user = docSnap.data();
     if (user.hasBac && user.adresse) {
       const coords = await getCoords(user.adresse);
       if (coords) {
@@ -73,7 +74,25 @@ async function loadUserBacs() {
         marker.bindPopup(`<b>${user.prenom} ${user.nom}</b><br>${user.adresse}`);
       }
     }
+  }
+}
+
+// ---------- Bacs ajoutés par les admins ----------
+async function loadAdminBacs() {
+  const querySnapshot = await getDocs(collection(db, "bacs"));
+  querySnapshot.forEach((docSnap) => {
+    const bac = docSnap.data();
+    if (bac.coords) {
+      const marker = L.marker(bac.coords).addTo(map);
+      marker.bindPopup(`<b>${bac.name}</b><br>${bac.adresse}`);
+    }
   });
 }
 
-loadUserBacs();
+// ---------- Charger toutes les sources ----------
+async function initBacs() {
+  await loadUserBacs();
+  await loadAdminBacs();
+}
+
+initBacs();

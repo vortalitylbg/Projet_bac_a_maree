@@ -44,7 +44,7 @@
   </header>
 
   <main>
-    <h1>Admin Panel - v1.0.2</h1>
+    <h1>Admin Panel - v1.0.3</h1>
     <p>Réalisé par Unix le gros BG de chez <a target="_blank" href="https://unpixelpres.fr" style="text-decoration: none; color: rgb(70, 70, 175);">Un Pixel Près</a></p>
     <div class="table-container">
       <table>
@@ -60,8 +60,10 @@
         <tbody id="usersBody">
           <!-- Rempli par JS -->
         </tbody>
+        
       </table>
     </div>
+    <div id="usersPagination" style="text-align:center; margin-top:1rem;"></div>
 
     <section class="add-news">
       <h2>Publier une actualité</h2>
@@ -96,16 +98,43 @@
       </div>
     </section>
 
+    <section class="add-bac">
+      <h2>Ajouter un point de collecte</h2>
+      <form id="bacForm">
+        <div class="form-group">
+          <label for="bacName">Nom du point</label>
+          <input type="text" id="bacName" required>
+        </div>
+        <div class="form-group">
+          <label for="bacAdresse">Adresse</label>
+          <input type="text" id="bacAdresse" required>
+        </div>
+        <button type="submit" class="btn glass-btn">Ajouter</button>
+      </form>
+    </section>
+
+
   </main>
 
   <!-- Modal suppression -->
   <div id="deleteModal" class="modal hidden">
     <div class="modal-content glass">
-      <h2>Confirmation</h2>
-      <p>Voulez-vous vraiment supprimer ce compte ?</p>
+      <h2>Impossible actuellement</h2>
+      <p>Si vous voulez vraiment supprimer ce compte, demandez au beau gos.... Euh à Unix</p>
       <div class="modal-actions">
         <button id="cancelDelete" class="btn secondary cancel">Annuler</button>
-        <button id="confirmDelete" class="btn danger">Supprimer</button>
+        <button id="confirmDelete" style="display: none;" class="btn danger">Supprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="fuckModal" class="modal hidden">
+    <div class="modal-content glass">
+      <h2>ça marche !!!!</h2>
+      <p>Si vous voulez vraiment supprimer ce compte, demandez au beau gos.... Euh à Unix</p>
+      <div class="modal-actions">
+        <button id="cancelDelete" class="btn secondary cancel">Annuler</button>
+        <button id="confirmDelete" style="display: none;" class="btn danger">Supprimer</button>
       </div>
     </div>
   </div>
