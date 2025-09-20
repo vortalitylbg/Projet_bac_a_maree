@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boutique | Bac À Marée</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="css/shop.css">
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Canvas particules -->
+  <canvas id="particles"></canvas>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar glass">
+      <a href="index.html"><img src="images/logo_nature_epure.png" alt="logo" class="logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="bacs.html">Points de collecte</a></li>
+        <li><a href="news.html">Les news</a></li>
+        <li><a href="ou_nous_trouver.html">Où nous trouver ?</a></li>
+        <li><a href="shop.html" class="active">Boutique</a></li>
+        <li><a href="#">Info plastique</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="register.html" class="btn glass-btn active">S'inscrire</a>
+        <a href="login.html" class="btn glass-btn secondary">Se connecter</a>
+      </div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="bacs.html">Points de collecte</a></li>
+        <li><a href="news.html">Les news</a></li>
+        <li><a href="ou_nous_trouver.html">Où nous trouver ?</a></li>
+        <li><a href="shop.html" class="active">Boutique</a></li>
+        <li><a href="#">Info plastique</a></li>
+        <li><a href="register.html" class="btn glass-btn active">S'inscrire</a></li>
+        <li><a href="login.html" class="btn glass-btn secondary">Se connecter</a></li>
+      </ul>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+  <!-- Section Boutique -->
+  <section class="shop-section">
+    <h1>Boutique</h1>
+    <p class="shop-intro">Découvrez nos produits écoresponsables issus du recyclage !</p>
+
+    <div class="shop-grid">
+      <!-- Produit 1 -->
+      <div class="shop-item glass">
+        <img src="images/produit1.jpg" alt="Produit recyclé" class="shop-img"/>
+        <h3>Bac 1</h3>
+        <p class="price">12,00 €</p>
+        <button class="btn glass-btn">Acheter</button>
+      </div>
+
+      <!-- Produit 2 -->
+      <div class="shop-item glass">
+        <img src="images/produit2.jpg" alt="Produit recyclé" class="shop-img"/>
+        <h3>Bac 2</h3>
+        <p class="price">18,00 €</p>
+        <button class="btn glass-btn">Acheter</button>
+      </div>
+
+      <!-- Produit 3 -->
+      <div class="shop-item glass">
+        <img src="images/produit3.jpg" alt="Produit recyclé" class="shop-img"/>
+        <h3>Bac 3</h3>
+        <p class="price">8,00 €</p>
+        <button class="btn glass-btn">Acheter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="glass">
+    <div class="footer-content">
+      <div class="footer-info">
+        <p>&copy; 2025 Bac à Marée – Lycée St Aubin La Salle</p>
+        <p>Site réalisé par <a target="_blank" href="https://unpixelpres.fr">Un Pixel Près</a></p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="js/lenis.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

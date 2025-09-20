@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Où nous trouver ? | Bac À Marée</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/ou_nous_trouver.css">
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Particules -->
+  <canvas id="particles"></canvas>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar glass">
+      <a href="index.html"><img src="images/logo_nature_epure.png" alt="logo" class="logo" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="bacs.html">Points de collecte</a></li>
+        <li><a href="news.html">Les news</a></li>
+        <li><a href="ou_nous_trouver.html" class="active">Où nous trouver ?</a></li>
+        <li><a href="shop.html">Boutique</a></li>
+        <li><a href="#">Info plastique</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="register.html" class="btn glass-btn active">S'inscrire</a>
+        <a href="login.html" class="btn glass-btn secondary">Se connecter</a>
+      </div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="bacs.html">Points de collecte</a></li>
+        <li><a href="news.html">Les news</a></li>
+        <li><a href="ou_nous_trouver.html" class="active">Où nous trouver ?</a></li>
+        <li><a href="shop.html">Boutique</a></li>
+        <li><a href="#">Info plastique</a></li>
+        <li><a href="register.html" class="btn glass-btn active">S'inscrire</a></li>
+        <li><a href="login.html" class="btn glass-btn secondary">Se connecter</a></li>
+      </ul>
+    </div>
+    <div class="overlay"></div>
+  </header>
+
+  <!-- Section Contact -->
+  <main class="contact-container glass">
+    <h1>Où nous trouver ?</h1>
+    <p>Retrouvez-nous au sein du <strong>Lycée Saint Aubin La Salle</strong> :</p>
+
+    <div class="contact-info">
+      <p><i class="fa-solid fa-location-dot"></i> 14 Rue Hélène Boucher, 49480 Verrières-en-Anjou (Saint Sylvain d’Anjou)</p>
+      <p><i class="fa-solid fa-envelope"></i> contact@bacamaree.fr</p>
+      <p><i class="fa-solid fa-phone"></i> +33 2 41 00 00 00</p>
+      <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/nature___epure" target="_blank">@nature___epure</a></p>
+    </div>
+
+    <!-- Carte -->
+    <div id="map"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="glass">
+    <div class="footer-content">
+      <div class="footer-info">
+        <p>&copy; 2025 Bac à Marée – Lycée St Aubin La Salle</p>
+        <p>Site réalisé par <a target="_blank" href="https://unpixelpres.fr">Un Pixel Près</a></p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([47.50745, -0.48837], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+
+    const marker = L.marker([47.50745, -0.48837]).addTo(map);
+    marker.bindPopup("<b>Lycée Saint Aubin La Salle</b><br>14 Rue Hélène Boucher<br>Saint Sylvain d’Anjou").openPopup();
+  </script>
+
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="js/lenis.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

@@ -66,3 +66,54 @@ document.querySelectorAll(".toggle-password").forEach(btn => {
     }
   });
 });
+
+
+// -------- Autocomplete d'adresses (Nominatim) --------
+// -------- Autocomplete d'adresses (custom dropdown) --------
+const adresseInput = document.getElementById("adresse");
+const suggestionsBox = document.getElementById("adresseSuggestions");
+
+let debounceTimer;
+adresseInput.addEventListener("input", () => {
+  clearTimeout(debounceTimer);
+  const query = adresseInput.value.trim();
+
+  if (query.length < 3) {
+    suggestionsBox.style.display = "none";
+    return;
+  }
+
+  debounceTimer = setTimeout(async () => {
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=10&q=${encodeURIComponent(query)}`
+      );
+      const data = await response.json();
+
+      suggestionsBox.innerHTML = "";
+      if (data.length > 0) {
+        data.forEach(place => {
+          const div = document.createElement("div");
+          div.textContent = place.display_name;
+          div.addEventListener("click", () => {
+            adresseInput.value = place.display_name;
+            suggestionsBox.style.display = "none";
+          });
+          suggestionsBox.appendChild(div);
+        });
+        suggestionsBox.style.display = "block";
+      } else {
+        suggestionsBox.style.display = "none";
+      }
+    } catch (err) {
+      console.error("Erreur suggestions adresse:", err);
+    }
+  }, 300);
+});
+
+// Fermer si clic en dehors
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".autocomplete")) {
+    suggestionsBox.style.display = "none";
+  }
+});

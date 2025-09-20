@@ -70,10 +70,12 @@
             <button type="button" class="toggle-password" aria-label="Afficher le mot de passe">👁️</button>
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group autocomplete">
           <label for="adresse">Adresse postale</label>
-          <textarea id="adresse" name="adresse" rows="3" required></textarea>
+          <input type="text" id="adresse" name="adresse" autocomplete="off" required>
+          <div id="adresseSuggestions" class="suggestions"></div>
         </div>
+
         <div class="form-group checkbox-group">
           <input type="checkbox" id="hasBac" name="hasBac">
           <label for="hasBac">Je souhaite avoir un Bac à Marée à mon adresse</label>

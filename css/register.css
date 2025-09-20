@@ -173,3 +173,35 @@ button[type="submit"].glass-btn:active {
   font-size: 14px;
   color: #fff;
 }
+
+/* Conteneur autocomplete */
+.autocomplete {
+  position: relative;
+}
+
+/* Suggestions */
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 20, 0.9);
+  border-radius: 10px;
+  margin-top: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: none; /* caché par défaut */
+}
+
+.suggestions div {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #fff;
+}
+
+.suggestions div:hover {
+  background: rgba(79, 156, 249, 0.2);
+}
